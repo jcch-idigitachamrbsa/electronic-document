@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>بوابة خدمات غرفة جدة</title>
+    <style>
+        :root {
+            --primary-bg: #173c59;
+            --header-bg: linear-gradient(-130deg, #4062ad 20.17%, #0a925d 77.86%);
+            --details-bg: #e9eaec;
+            --text-color: #272b2e;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+        }
+
+        body {
+            background-color: #f4f5f7;
+            color: var(--text-color);
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* Top Header Logo Bar */
+        .top-bar {
+            background: var(--header-bg);
+            padding: 12px 24px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+        }
+
+        .top-bar svg {
+            height: 40px;
+            width: 40px;
+        }
+
+        /* Details Section */
+        .request-details {
+            background-color: var(--details-bg);
+            padding: 20px 30px;
+            border-bottom: 1px solid #ccc;
+        }
+
+        .details-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 15px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .info-item {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .info-item label {
+            font-size: 0.85rem;
+            color: #6c757d;
+            margin-bottom: 4px;
+            font-weight: bold;
+        }
+
+        .info-item p {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #212529;
+            word-break: break-word;
+        }
+
+        /* PDF Viewer Container */
+        .pdf-viewer-container {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 15px;
+            background-color: #525659;
+            min-height: 75vh;
+        }
+
+        .pdf-frame {
+            width: 100%;
+            max-width: 1000px;
+            height: 80vh;
+            border: none;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            border-radius: 4px;
+            background-color: #ffffff;
+        }
+
+        /* أزرار مساعدة خاصة بالجوال */
+        .mobile-actions {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 12px;
+            width: 100%;
+            max-width: 1000px;
+            justify-content: center;
+        }
+
+        .btn-action {
+            background-color: #0a925d;
+            color: white;
+            padding: 8px 16px;
+            text-decoration: none;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            font-weight: bold;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        @media (max-width: 600px) {
+            .request-details {
+                padding: 15px;
+            }
+            .details-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .pdf-frame {
+                height: 70vh;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Logo -->
+    <div class="top-bar">
+        <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="50" cy="50" r="45" stroke="white" stroke-width="8"/>
+            <path d="M30 50 L45 65 L70 35" stroke="white" stroke-width="8" stroke-linecap="round"/>
+        </svg>
+    </div>
+
+    <!-- Document Info Panel -->
+    <div class="request-details">
+        <div class="details-grid">
+            <div class="info-item">
+                <label>رقم الوثيقة</label>
+                <p>5310842</p>
+            </div>
+            <div class="info-item">
+                <label>الرقم الموحد</label>
+                <p>7001363451</p>
+            </div>
+            <div class="info-item">
+                <label>تاريخ الإنشاء</label>
+                <p>Sep 25, 2025</p>
+            </div>
+            <div class="info-item">
+                <label>حالة الوثيقة</label>
+                <p style="color: #198754;">سارية</p>
+            </div>
+            <div class="info-item" style="grid-column: span 2;">
+                <label>اسم المنشأة</label>
+                <p>شركة المصانع السعوديه اللبنانيه للشوكولا والسكاكر</p>
+            </div>
+            <div class="info-item">
+                <label>رقم السجل التجاري</label>
+                <p>4030049701</p>
+            </div>
+            <div class="info-item">
+                <label>رقم الإشتراك</label>
+                <p>23319</p>
+            </div>
+            <div class="info-item">
+                <label>مقدم الطلب</label>
+                <p>أحمد محمد عبد الله الزهراني</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Embedded PDF Section المتوافق مع الجوال والكمبيوتر -->
+    <div class="pdf-viewer-container">
+        <div class="mobile-actions">
+            <a href="document.pdf" download="document.pdf" class="btn-action">
+                ⬇️ تحميل الملف
+            </a>
+            <a href="document.pdf" target="_blank" class="btn-action" style="background-color: #4062ad;">
+                🔍 عرض بحجم كامل
+            </a>
+        </div>
+
+        <iframe src="https://docs.google.com/viewer?url=https://jcch-idigitachamrbsa.github.io/electronic-document/document.pdf&embedded=true" class="pdf-frame"></iframe>
+    </div>
+
+</body>
+</html>
